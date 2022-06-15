@@ -18,8 +18,8 @@ operator:
 ##    env:
 ##      variable_name: variable
   image:
-    name: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator
-    tag: v2.3.0
+    name: rainbond-operator
+    tag: v1.1
     pullPolicy: IfNotPresent
   logLevel: 4
 
@@ -50,11 +50,11 @@ Cluster:
 
 ## 外部存储，直接填写storageClassName，true为开，false为关
   RWX:
-    enable: true
+    enable: false
     type: 
     config:
       storageClassName: glusterfs-simple
-      server: testaaaaaa
+      server: 
 
 
 ## 外部存储，直接填写storageClassName，true为开，false为关
