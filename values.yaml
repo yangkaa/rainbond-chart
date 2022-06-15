@@ -442,3 +442,12 @@ Component:
 ## kubernetes-dashboard 组件自定义信息: 镜像地址
   kubernetes_dashboard:
     image:
+
+
+## 开启子chart
+nfs-client-provisioner:
+  childChart:
+    enable: true
+  nfs:
+    server: 1111
+    path: testpath
