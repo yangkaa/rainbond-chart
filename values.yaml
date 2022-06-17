@@ -447,7 +447,7 @@ Component:
 ## 开启子chart
 nfs-client-provisioner:
   childChart:
-    enable: true
+    enable: false
   nfs:
-    server: 1111
-    path: testpath
+    server: 10.0.8.3
+    path: /u01
