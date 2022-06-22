@@ -35,7 +35,24 @@ items:
 {{- end }}
 {{- if .Values.Cluster.RWX.enable  }} 
     rainbondVolumeSpecRWX:
-{{ .Values.Cluster.RWX.config  | toYaml | indent 6 }}
+      {{- if eq .Values.Cluster.RWX.type "aliyun" }}
+      storageClassParameters:
+        mountOptions:
+        - "nolock,tcp,noresvport"
+        - "vers=4"
+        - "minorversion=0"
+        - "rsize=1048576"
+        - "wsize=1048576"
+        - "timeo=600"
+        - "retrans=2"
+        - "hard"
+        parameters:
+          volumeAs: subpath
+          archiveOnDelete: "true"
+          server: {{ .Values.Cluster.RWX.config.server}}
+      {{- else }}
+      storageClassName: {{ .Values.Cluster.RWX.config.storageClassName }}
+      {{- end }}
       imageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
 {{- end }}
 {{- if .Values.Cluster.regionDatabase.enable }}
