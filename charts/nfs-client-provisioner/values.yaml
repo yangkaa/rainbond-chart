@@ -9,8 +9,9 @@ childChart:
   enable: false
 
 image:
-  repository: registry.cn-hangzhou.aliyuncs.com/zqqq/nfs-client-provisioner
-  tag: v3.1.0-k8s1.11
+# Reference: https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
+  repository: registry.cn-hangzhou.aliyuncs.com/goodrain/nfs-client-provisioner
+  tag: v4.0.2
   pullPolicy: IfNotPresent
 
 nfs:
